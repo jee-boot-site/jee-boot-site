@@ -34,13 +34,16 @@ spring:
         testOnReturn: false
         poolPreparedStatements: true
         maxOpenPreparedStatements: 20
-    mvc:
-        view:
-            prefix: /templates/
-            suffix: .ftl
+#    mvc:
+#        view:
+#            prefix: /templates/
+#            suffix: .ftl
     thymeleaf:
         cache: false
+    messages:
+        basename: i18n/messages
         #request-context-attribute: request
+
 
 #以下属性不可用
 #mybatis:
