@@ -51,7 +51,7 @@
                     </div>
                     <div class="panel-body">
 
-                        <div  th:errors="${user.account}" class="alert alert-warning"></div>
+                        <div  th:errors="${user.account}" class="alert alert-warning">User  not exist</div>
                         <div  th:if="${#fields.hasErrors('${user.account}')}"></div>
 
                         <form role="form" action="doLogin" method="post" th:action="@{/doLogin}" th:object="${user}">

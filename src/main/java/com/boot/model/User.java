@@ -1,8 +1,11 @@
 package com.boot.model;
 
+import javax.persistence.Entity;
+
 /**
  * Created by Ming on 2016/2/22.
  */
+@Entity
 public class User {
 
     private String account;

@@ -1,6 +1,6 @@
 # boot-side
 |technology choose|
-|--|
+|---|
 |spring-boot|
 |thymeleaf|
 |mybatis|
