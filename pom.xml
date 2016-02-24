@@ -20,6 +20,7 @@
         <module>boot-activiti</module>
         <module>boot-sys</module>
         <module>boot-oa</module>
+        <module>boot-database</module>
     </modules>
 
 
