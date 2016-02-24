@@ -15,7 +15,7 @@ spring:
 #        type: com.alibaba.druid.pool.DruidDataSource
 #        driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
         name: test
-        url: jdbc:mysql://localhost:3306/test
+        url: jdbc:mysql://localhost:3306/jeesite
         username: root
         password: 123456
         # 使用druid数据源
@@ -54,7 +54,7 @@ spring:
 #        returnPageInfo: check
 #        params: count=countSql
 #    mapper:
-#        mappers: tk.mybatis.springboot.util.MyMapper
+#        mappers: tk.mybatis.springboot.utils.MyMapper
 #        notEmpty: true
 #        style: camelhump
 #    sqlSessionFactoryBean:

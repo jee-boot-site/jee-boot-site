@@ -4,7 +4,7 @@ var uglify = require('gulp-uglify');
 var header = require('gulp-header');
 var jshint = require('gulp-jshint');
 var todo = require('gulp-todo');
-var gulputil = require('gulp-util');
+var gulputil = require('gulp-utils');
 
 var moment = require('moment');
 var pkg = require('./package.json');

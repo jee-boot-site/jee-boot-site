@@ -22,7 +22,7 @@
  * THE SOFTWARE.
  */
 
-package com.boot.sys.util;
+package com.boot.sys.utils;
 
 import tk.mybatis.mapper.common.Mapper;
 import tk.mybatis.mapper.common.MySqlMapper;
