@@ -29,98 +29,96 @@
             targetProject="E:\Backend-admin\boot\boot-sys\src\main\java">
            -->
 
-        <javaModelGenerator targetPackage="com.boot.cms.entity"
+        <javaModelGenerator targetPackage="com.boot.sys.entity"
                             targetProject="src\main\java">
             <property name="enableSubPackages" value="true"/>
             <property name="trimStrings" value="true"/>
         </javaModelGenerator>
 
-        <sqlMapGenerator targetPackage="mapper.cms" targetProject="src\main\resources">
+        <sqlMapGenerator targetPackage="mapper.sys" targetProject="src\main\resources">
             <property name="enableSubPackages" value="true"/>
         </sqlMapGenerator>
 
-        <javaClientGenerator type="XMLMAPPER" targetPackage="com.boot.cms.dao"
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.boot.sys.dao"
                              targetProject="src\main\java">
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
 
-<!--Sys  模块的表
 
-        <table tableName="sys_role_office" domainObjectName="SysRoleOffice"
+        <table tableName="sys_role_office" domainObjectName="RoleOffice"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false"/>
-        <table tableName="sys_user_role" domainObjectName="SysUserRole"
+        <table tableName="sys_user_role" domainObjectName="UserRole"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false"/>
-        <table tableName="sys_office" domainObjectName="sysOffice"
+        <table tableName="sys_office" domainObjectName="Office"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false"/>
-        <table tableName="sys_area" domainObjectName="SysArea"
+        <table tableName="sys_area" domainObjectName="Area"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false"/>
-        <table tableName="sys_dict" domainObjectName="SysDict"
+        <table tableName="sys_dict" domainObjectName="Dict"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false"/>
-        <table tableName="sys_log" domainObjectName="SysLog"
+        <table tableName="sys_log" domainObjectName="Log"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false"/>
-        <table tableName="sys_mdict" domainObjectName="SysMdict" enableCountByExample="false"
+        <table tableName="sys_mdict" domainObjectName="Mdict" enableCountByExample="false"
                enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false"/>
-        <table tableName="sys_role_menu" domainObjectName="SysRoleMenu"
+        <table tableName="sys_role_menu" domainObjectName="RoleMenu"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false"/>
-        <table tableName="sys_menu" domainObjectName="SysMenu"
+        <table tableName="sys_menu" domainObjectName="Menu"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false"/>
-        <table tableName="sys_role" domainObjectName="SysRole"
+        <table tableName="sys_role" domainObjectName="Role"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false"/>
-        <table tableName="sys_user" domainObjectName="SysUser"
+        <table tableName="sys_user" domainObjectName="User"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false"/>
 
--->
 
-        <table tableName="cms_article" domainObjectName="CmsArticle"
+        <!--<table tableName="cms_article" domainObjectName="Article"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false"/>
-        <table tableName="cms_article_data" domainObjectName="CmsArticleData"
+        <table tableName="cms_article_data" domainObjectName="ArticleData"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false"/>
-        <table tableName="cms_category" domainObjectName="CmsCategory"
+        <table tableName="cms_category" domainObjectName="Category"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false"/>
-        <table tableName="cms_comment" domainObjectName="CmsComment"
+        <table tableName="cms_comment" domainObjectName="Comment"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false"/>
-        <table tableName="cms_guestbook" domainObjectName="CmsGuestbook"
+        <table tableName="cms_guestbook" domainObjectName="Guestbook"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false"/>
-        <table tableName="cms_link" domainObjectName="CmsLink"
+        <table tableName="cms_link" domainObjectName="Link"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false"/>
-        <table tableName="cms_site" domainObjectName="CmsSite"
+        <table tableName="cms_site" domainObjectName="Site"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
-               selectByExampleQueryId="false"/>
+               selectByExampleQueryId="false"/>-->
 
     </context>
 

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.boot.cms.dao.CategoryMapper" >
+  <resultMap id="BaseResultMap" type="com.boot.cms.entity.Category" >
+    <!--
+      WARNING - @mbggenerated
+    -->
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="parent_id" property="parentId" jdbcType="VARCHAR" />
+    <result column="parent_ids" property="parentIds" jdbcType="VARCHAR" />
+    <result column="site_id" property="siteId" jdbcType="VARCHAR" />
+    <result column="office_id" property="officeId" jdbcType="VARCHAR" />
+    <result column="module" property="module" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="image" property="image" jdbcType="VARCHAR" />
+    <result column="href" property="href" jdbcType="VARCHAR" />
+    <result column="target" property="target" jdbcType="VARCHAR" />
+    <result column="description" property="description" jdbcType="VARCHAR" />
+    <result column="keywords" property="keywords" jdbcType="VARCHAR" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="in_menu" property="inMenu" jdbcType="CHAR" />
+    <result column="in_list" property="inList" jdbcType="CHAR" />
+    <result column="show_modes" property="showModes" jdbcType="CHAR" />
+    <result column="allow_comment" property="allowComment" jdbcType="CHAR" />
+    <result column="is_audit" property="isAudit" jdbcType="CHAR" />
+    <result column="custom_list_view" property="customListView" jdbcType="VARCHAR" />
+    <result column="custom_content_view" property="customContentView" jdbcType="VARCHAR" />
+    <result column="create_by" property="createBy" jdbcType="VARCHAR" />
+    <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
+    <result column="update_by" property="updateBy" jdbcType="VARCHAR" />
+    <result column="update_date" property="updateDate" jdbcType="TIMESTAMP" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.boot.cms.entity.Category" extends="BaseResultMap" >
+    <!--
+      WARNING - @mbggenerated
+    -->
+    <result column="view_config" property="viewConfig" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--
+      WARNING - @mbggenerated
+    -->
+    id, parent_id, parent_ids, site_id, office_id, module, name, image, href, target, 
+    description, keywords, sort, in_menu, in_list, show_modes, allow_comment, is_audit, 
+    custom_list_view, custom_content_view, create_by, create_date, update_by, update_date, 
+    remarks, del_flag
+  </sql>
+  <sql id="Blob_Column_List" >
+    <!--
+      WARNING - @mbggenerated
+    -->
+    view_config
+  </sql>
+</mapper>

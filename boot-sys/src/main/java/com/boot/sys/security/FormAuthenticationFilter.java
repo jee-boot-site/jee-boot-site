@@ -10,7 +10,6 @@ import org.apache.shiro.authc.AuthenticationToken;
 import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.authc.UnknownAccountException;
 import org.apache.shiro.web.util.WebUtils;
-import org.springframework.stereotype.Service;
 
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
@@ -22,7 +21,7 @@ import javax.servlet.http.HttpServletRequest;
  * @author ThinkGem
  * @version 2014-5-19
  */
-@Service
+
 public class FormAuthenticationFilter extends org.apache.shiro.web.filter.authc.FormAuthenticationFilter {
 
     public static final String DEFAULT_CAPTCHA_PARAM = "validateCode";
@@ -32,6 +31,7 @@ public class FormAuthenticationFilter extends org.apache.shiro.web.filter.authc.
     private String captchaParam = DEFAULT_CAPTCHA_PARAM;
     private String mobileLoginParam = DEFAULT_MOBILE_PARAM;
     private String messageParam = DEFAULT_MESSAGE_PARAM;
+
 
     protected AuthenticationToken createToken(ServletRequest request, ServletResponse response) {
         String username = getUsername(request);
@@ -74,22 +74,15 @@ public class FormAuthenticationFilter extends org.apache.shiro.web.filter.authc.
     }
 
     @Override
-    protected void issueSuccessRedirect(ServletRequest request,
-                                        ServletResponse response) throws Exception {
-//		Principal p = UserUtils.getPrincipal();
-//		if (p != null && !p.isMobileLogin()){
+    protected void issueSuccessRedirect(ServletRequest request,ServletResponse response) throws Exception {
         WebUtils.issueRedirect(request, response, getSuccessUrl(), null, true);
-//		}else{
-//			super.issueSuccessRedirect(request, response);
-//		}
     }
 
     /**
      * 登录失败调用事件
      */
     @Override
-    protected boolean onLoginFailure(AuthenticationToken token,
-                                     AuthenticationException e, ServletRequest request, ServletResponse response) {
+    protected boolean onLoginFailure(AuthenticationToken token, AuthenticationException e, ServletRequest request, ServletResponse response) {
         String className = e.getClass().getName(), message = "";
         if (IncorrectCredentialsException.class.getName().equals(className)
                 || UnknownAccountException.class.getName().equals(className)){
@@ -107,4 +100,7 @@ public class FormAuthenticationFilter extends org.apache.shiro.web.filter.authc.
         return true;
     }
 
+    protected String getUsername(ServletRequest request) {
+        return WebUtils.getCleanParam(request, "loginName");
+    }
 }

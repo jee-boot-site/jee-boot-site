@@ -51,18 +51,18 @@
                     </div>
                     <div class="panel-body">
 
-                        <div  th:errors="${user.account}" class="alert alert-warning">User  not exist</div>
-                        <div  th:if="${#fields.hasErrors('${user.account}')}"></div>
+                        <div  th:errors="${user.loginName}" class="alert alert-warning">User  not exist</div>
+                        <div  th:if="${#fields.hasErrors('${user.loginName}')}"></div>
 
-                        <form role="form" action="doLogin" method="post" th:action="@{/doLogin}" th:object="${user}">
+                        <form role="form" action="login" method="post" th:action="@{/login}" th:object="${user}">
                             <fieldset>
 
-                               <!-- <p th:if="${#fields.hasErrors('account')}" th:errors="*{account}">Incorrect data</p>-->
+                               <!-- <p th:if="${#fields.hasErrors('loginName')}" th:errors="*{loginName}">Incorrect data</p>  placeholder="E-mail"-->
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="E-mail" name="email" type="email" th:field="*{account}"  required="required" autofocus="autofocus"/>
+                                    <input class="form-control"  name="loginName" type="text" th:field="*{loginName}"  value="admin" required="required" autofocus="autofocus"/>
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="Password" name="password" type="password"  th:field="*{password}" required="required" value="aaaaaa" />
+                                    <input class="form-control" placeholder="Password" name="password" type="password"  th:field="*{password}"  required="required" value="aaaaaa" />
                                 </div>
                                 <div class="checkbox">
                                     <label>
