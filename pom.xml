@@ -20,7 +20,7 @@
         <module>boot-activiti</module>
         <module>boot-sys</module>
         <module>boot-oa</module>
-        <module>boot-database</module>
+        <module>boot-dao</module>
         <module>boot-common</module>
     </modules>
 
@@ -191,12 +191,6 @@
             <groupId>org.apache.shiro</groupId>
             <artifactId>shiro-quartz</artifactId>
             <version>${shiro.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com</groupId>
-            <artifactId>boot-cms</artifactId>
-            <version>1.0-SNAPSHOT</version>
         </dependency>
 
     </dependencies>
