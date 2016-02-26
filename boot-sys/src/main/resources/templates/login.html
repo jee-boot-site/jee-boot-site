@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.thymeleaf.org">
 
 <head>
 
@@ -47,22 +47,24 @@
             <div class="col-md-4 col-md-offset-4">
                 <div class="login-panel panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title" th:text="#{sign_in}">Please Sign In</h3>
+                        <h3 class="panel-title" >Please Sign In</h3>
                     </div>
                     <div class="panel-body">
 
-                        <div  th:errors="${user.loginName}" class="alert alert-warning">User  not exist</div>
-                        <div  th:if="${#fields.hasErrors('${user.loginName}')}"></div>
+                        <!--<div  th:errors="${user.loginName}" class="alert alert-warning">User  not exist</div>
+                        <div  th:if="${#fields.hasErrors('${user.loginName}')}"></div>-->
+
+                        <div  th:if="${message != null}" th:text="${message}" class="alert alert-warning">User  not exist</div>
 
                         <form role="form" action="login" method="post" th:action="@{/login}" th:object="${user}">
                             <fieldset>
 
-                               <!-- <p th:if="${#fields.hasErrors('loginName')}" th:errors="*{loginName}">Incorrect data</p>  placeholder="E-mail"-->
+                                <!-- <p th:if="${#fields.hasErrors('loginName')}" th:errors="*{loginName}">Incorrect data</p>  placeholder="E-mail"  -->
                                 <div class="form-group">
-                                    <input class="form-control"  name="loginName" type="text" th:field="*{loginName}"  value="admin" required="required" autofocus="autofocus"/>
+                                    <input class="form-control" name="loginName" type="text" th:name="loginName" th:value="thinkgem" required="required" autofocus="autofocus"/>
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="Password" name="password" type="password"  th:field="*{password}"  required="required" value="aaaaaa" />
+                                    <input class="form-control" type="password"  placeholder="Password" name="password" th:name="password"  th:value="admin"   required="required"/>
                                 </div>
                                 <div class="checkbox">
                                     <label>

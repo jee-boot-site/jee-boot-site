@@ -5,6 +5,7 @@ import com.boot.common.utils.Encodes;
 import com.boot.sys.entity.User;
 import com.boot.sys.service.SystemService;
 import org.apache.shiro.authc.*;
+import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
@@ -14,6 +15,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
 import java.io.Serializable;
 
 /**
@@ -40,30 +42,20 @@ public class SystemAuthorizingRealm extends AuthorizingRealm {
      */
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
-        logger.info(JSON.toJSONString(authenticationToken));
         final UsernamePasswordToken token = (UsernamePasswordToken) authenticationToken;
         final String name = token.getUsername();
-        // 校验用户名密码
+
         User user = systemService.getByLoginName(name);
 
         if(user == null)
             throw new UnknownAccountException("msg:账号不存在.");
 
-
-        if ("0".equals(user.getLoginFlag())){
-            throw new AuthenticationException("msg:该已帐号禁止登录.");
-        }
-
-        logger.info("====================");
-
         byte[] salt = Encodes.decodeHex(user.getPassword().substring(0, 16));
+
         return new SimpleAuthenticationInfo(new Principal(user, token.isMobileLogin()),
                 user.getPassword().substring(16), ByteSource.Util.bytes(salt), getName());
 
-
     }
-
-
 
     /**
      * 授权用户信息
@@ -107,4 +99,15 @@ public class SystemAuthorizingRealm extends AuthorizingRealm {
         }
 
     }
+
+    /**
+     * 设定密码校验的Hash算法与迭代次数
+     */
+    @PostConstruct
+    public void initCredentialsMatcher() {
+        HashedCredentialsMatcher matcher = new HashedCredentialsMatcher("SHA-1");
+        matcher.setHashIterations(1024);
+        setCredentialsMatcher(matcher);
+    }
+
 }

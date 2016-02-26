@@ -33,8 +33,6 @@
         <mapper.version>3.3.6</mapper.version>
         <pagehelper.version>4.1.1</pagehelper.version>
         <shiro.version>1.2.4</shiro.version>
-
-
     </properties>
 
     <dependencies>
@@ -200,14 +198,16 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <dependencies>
-                    <dependency>
-                        <groupId>org.springframework</groupId>
-                        <artifactId>springloaded</artifactId>
-                        <version>1.2.5.RELEASE</version>
-                    </dependency>
-                </dependencies>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
+
+
 </project>

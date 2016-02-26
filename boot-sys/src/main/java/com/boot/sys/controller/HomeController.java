@@ -26,6 +26,12 @@ public class HomeController {
     }
 
 
+    @RequestMapping("/home")
+    String home(Model model) {
+        return "index";
+    }
+
+
     @RequestMapping("properties")
     @ResponseBody
     java.util.Properties properties() {

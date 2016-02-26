@@ -33,7 +33,7 @@ public class SystemService {
         }
 
         User user = new User();
-        user.setName(loginName);
+        user.setLoginName(loginName);
         logger.debug("The loginName"+ loginName);
         try {
             user =  userMapper.selectOne(user);

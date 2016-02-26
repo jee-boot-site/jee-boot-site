@@ -34,10 +34,6 @@ spring:
         testOnReturn: false
         poolPreparedStatements: true
         maxOpenPreparedStatements: 20
-#    mvc:
-#        view:
-#            prefix: /templates/
-#            suffix: .ftl
     thymeleaf:
         cache: false
     messages:
