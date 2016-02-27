@@ -12,7 +12,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>1.3.1.RELEASE</version>
+        <version>1.3.0.RELEASE</version>
     </parent>
 
     <modules>
@@ -30,7 +30,6 @@
         <java.version>1.8</java.version>
         <java.compile.version>1.8</java.compile.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-
         <!--  依赖版本  -->
         <mybatis.version>3.3.1</mybatis.version>
         <mybatis.spring.version>1.2.4</mybatis.spring.version>
@@ -198,18 +197,13 @@
             <groupId>org.apache.shiro</groupId>
             <artifactId>shiro-cas</artifactId>
             <version>${shiro.version}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>javax.servlet</groupId>
-                    <artifactId>servlet-api</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.apache.shiro</groupId>
             <artifactId>shiro-quartz</artifactId>
             <version>${shiro.version}</version>
         </dependency>
+
     </dependencies>
 
     <build>
@@ -238,33 +232,5 @@
                 </configuration>
             </plugin>
         </plugins>
-
-        <pluginManagement>
-            <plugins>
-                <!-- mybatis  xml  生成工具 -->
-                <plugin>
-                    <groupId>org.mybatis.generator</groupId>
-                    <artifactId>mybatis-generator-maven-plugin</artifactId>
-                    <version>1.3.2</version>
-                    <configuration>
-                        <configurationFile>${basedir}/src/main/resources/generatorConfig.xml</configurationFile>
-                        <overwrite>true</overwrite>
-                        <verbose>true</verbose>
-                    </configuration>
-                    <dependencies>
-                        <dependency>
-                            <groupId>mysql</groupId>
-                            <artifactId>mysql-connector-java</artifactId>
-                            <version>${mysql.version}</version>
-                        </dependency>
-                        <dependency>
-                            <groupId>tk.mybatis</groupId>
-                            <artifactId>mapper</artifactId>
-                            <version>3.3.0</version>
-                        </dependency>
-                    </dependencies>
-                </plugin>
-            </plugins>
-        </pluginManagement>
     </build>
 </project>

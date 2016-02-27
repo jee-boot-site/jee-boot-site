@@ -10,6 +10,7 @@ import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.session.mgt.ValidatingSessionManager;
 import org.apache.shiro.spring.LifecycleBeanPostProcessor;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
+import org.apache.shiro.web.filter.authc.PassThruAuthenticationFilter;
 import org.apache.shiro.web.mgt.CookieRememberMeManager;
 import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
 import org.apache.shiro.web.servlet.SimpleCookie;
@@ -41,6 +42,8 @@ public class ShiroConfig {
         Map<String, Filter> filters = new HashMap<>();
         filters.put("authc", new FormAuthenticationFilter());
         filters.put("vasFilter", casFilter());
+        filters.put("pass",new PassThruAuthenticationFilter());
+
 
         ShiroFilterFactoryBean shiroFilterFactoryBean = new ShiroFilterFactoryBean();
         shiroFilterFactoryBean.setLoginUrl("/login");
@@ -48,11 +51,12 @@ public class ShiroConfig {
         shiroFilterFactoryBean.setUnauthorizedUrl("/unauthorized");
         shiroFilterFactoryBean.setFilters(filters);
         shiroFilterFactoryBean.setSecurityManager(securityManager());
+        PassThruAuthenticationFilter a = new PassThruAuthenticationFilter();
 
 
         final LinkedHashMap<String, String> filterChains = new LinkedHashMap<>();
         filterChains.put("/login", "authc");
-        filterChains.put("/home","anon");
+        filterChains.put("/home","pass");
         filterChains.put("/logout","logout");
         shiroFilterFactoryBean.setFilterChainDefinitionMap(filterChains);
         return shiroFilterFactoryBean;

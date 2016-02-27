@@ -11,7 +11,9 @@
 
 
     <artifactId>boot-sys</artifactId>
-
+    <properties>
+    <start-class>com.boot.Application</start-class>
+    </properties>
     <dependencies>
         <dependency>
             <groupId>com</groupId>
@@ -33,4 +35,5 @@
 
 
     </dependencies>
+
 </project>

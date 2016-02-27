@@ -10,6 +10,8 @@ import org.apache.shiro.authc.AuthenticationToken;
 import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.authc.UnknownAccountException;
 import org.apache.shiro.web.util.WebUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
@@ -17,7 +19,7 @@ import javax.servlet.http.HttpServletRequest;
 
 
 /**
- * 表单验证（包含验证码）过滤类
+ * 登陆表单验证（包含验证码）过滤类
  * @author ThinkGem
  * @version 2014-5-19
  */
@@ -31,11 +33,13 @@ public class FormAuthenticationFilter extends org.apache.shiro.web.filter.authc.
     private String captchaParam = DEFAULT_CAPTCHA_PARAM;
     private String mobileLoginParam = DEFAULT_MOBILE_PARAM;
     private String messageParam = DEFAULT_MESSAGE_PARAM;
-
+    private String usernameParam = "loginName";
+    private Logger logger = LoggerFactory.getLogger(FormAuthenticationFilter.class);
 
     protected AuthenticationToken createToken(ServletRequest request, ServletResponse response) {
         String username = getUsername(request);
         String password = getPassword(request);
+
         if (password==null){
             password = "";
         }
@@ -84,9 +88,12 @@ public class FormAuthenticationFilter extends org.apache.shiro.web.filter.authc.
     @Override
     protected boolean onLoginFailure(AuthenticationToken token, AuthenticationException e, ServletRequest request, ServletResponse response) {
         String className = e.getClass().getName(), message = "";
-        if (IncorrectCredentialsException.class.getName().equals(className)
-                || UnknownAccountException.class.getName().equals(className)){
-            message = "用户或密码错误, 请重试.";
+
+        if (IncorrectCredentialsException.class.getName().equals(className)){
+            message = "密码错误, 请重试.";
+        }
+        else if(UnknownAccountException.class.getName().equals(className)){
+            message = "用户名不存在，请重试";
         }
         else if (e.getMessage() != null && StringUtils.startsWith(e.getMessage(), "msg:")){
             message = StringUtils.replace(e.getMessage(), "msg:", "");
@@ -100,7 +107,14 @@ public class FormAuthenticationFilter extends org.apache.shiro.web.filter.authc.
         return true;
     }
 
+    public String getUsernameParam() {
+        return this.usernameParam;
+    }
+
+    public void setUsernameParam(String usernameParam) {
+        this.usernameParam = usernameParam;
+    }
     protected String getUsername(ServletRequest request) {
-        return WebUtils.getCleanParam(request, "loginName");
+        return WebUtils.getCleanParam(request,this.usernameParam);
     }
 }
