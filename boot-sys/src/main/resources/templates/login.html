@@ -59,7 +59,7 @@
                         <form role="form" action="login" method="post" th:action="@{/login}" th:object="${user}">
                             <fieldset>
 
-                                <!-- <p th:if="${#fields.hasErrors('loginName')}" th:errors="*{loginName}">Incorrect data</p>  placeholder="E-mail"  -->
+                                <!--<p th:if="${#fields.hasErrors('loginName')}" th:errors="*{loginName}">Incorrect data</p>  placeholder="E-mail"  -->
                                 <div class="form-group">
                                     <input class="form-control" name="loginName" type="text" th:name="loginName" th:value="thinkgem" required="required" autofocus="autofocus"/>
                                 </div>
