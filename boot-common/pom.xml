@@ -23,11 +23,7 @@
     </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>com</groupId>
-            <artifactId>boot-cms</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
+
 
         <!-- GENERAL UTILS begin -->
         <dependency>

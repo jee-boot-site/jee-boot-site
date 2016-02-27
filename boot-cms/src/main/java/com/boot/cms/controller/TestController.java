@@ -1,20 +1,23 @@
 package com.boot.cms.controller;
 
+import com.boot.cms.dao.ArticleDataMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import java.time.LocalDateTime;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
- * Created by Ming on 2016/2/23.
+ * Created by Kings on 16/2/27.
  */
 @Controller
 public class TestController {
+    @Autowired
+    private ArticleDataMapper articleDataMapper;
+    @RequestMapping("/test")
+    @ResponseBody
+    public String test(){
+        System.out.println(articleDataMapper.selectAll());;
 
-    @RequestMapping("/test2")
-    String index(Model model) {
-        model.addAttribute("now", LocalDateTime.now());
-        return "index";
+        return "1";
     }
 }
