@@ -22,7 +22,7 @@
  * THE SOFTWARE.
  */
 
-package com.boot.sys.conf;
+package com.boot.common.mybatis;
 
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.context.annotation.Bean;
@@ -47,10 +47,10 @@ public class MyBatisMapperScannerConfig {
         MapperScannerConfigurer mapperScannerConfigurer = new MapperScannerConfigurer();
         mapperScannerConfigurer.setSqlSessionFactoryBeanName("sqlSessionFactory");
         //mapperScannerConfigurer.setBasePackage("com.boot.sys.mapper");
-        mapperScannerConfigurer.setBasePackage("com.boot.sys.dao");
+        mapperScannerConfigurer.setBasePackage("com.boot.*.dao");
 
         Properties properties = new Properties();
-        properties.setProperty("mappers", "com.boot.sys.utils.MyMapper");
+        properties.setProperty("mappers", "com.boot.common.mybatis.MyMapper");
         properties.setProperty("notEmpty", "false");
         properties.setProperty("IDENTITY", "MYSQL");
         mapperScannerConfigurer.setProperties(properties);

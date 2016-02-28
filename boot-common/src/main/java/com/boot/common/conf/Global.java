@@ -1,4 +1,4 @@
-package com.boot.sys.conf;
+package com.boot.common.conf;
 
 import org.springframework.context.annotation.PropertySource;
 
@@ -8,11 +8,8 @@ import org.springframework.context.annotation.PropertySource;
 
 @PropertySource(value = "classpath:jeesite.properties")
 public class Global {
-
     /**
      * 当前对象实例
      */
     private static Global global = new Global();
-
-
 }

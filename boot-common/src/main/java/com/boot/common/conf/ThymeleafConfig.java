@@ -1,4 +1,4 @@
-package com.boot.sys.conf;
+package com.boot.common.conf;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

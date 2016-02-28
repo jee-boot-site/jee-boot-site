@@ -1,4 +1,4 @@
-package com.boot.sys.conf;
+package com.boot.common.mybatis;
 
 import com.github.pagehelper.PageHelper;
 import org.apache.ibatis.plugin.Interceptor;
@@ -6,6 +6,8 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.AutoConfigureAfter;
+import org.springframework.boot.autoconfigure.AutoConfigureBefore;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
@@ -36,8 +38,7 @@ public class MyBatisConfig implements TransactionManagementConfigurer {
         SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
         bean.setDataSource(dataSource);
         //bean.setTypeAliasesPackage("tk.mybatis.springboot.model");
-        bean.setTypeAliasesPackage("com.boot.sys.model");
-
+        bean.setTypeAliasesPackage("com.boot.cms.entity");
         //分页插件
         PageHelper pageHelper = new PageHelper();
         Properties properties = new Properties();
@@ -53,7 +54,7 @@ public class MyBatisConfig implements TransactionManagementConfigurer {
         //添加XML目录
         ResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
         try {
-            bean.setMapperLocations(resolver.getResources("classpath:mapper/*.xml"));
+            bean.setMapperLocations(resolver.getResources("classpath*:mapper/**/*.xml"));
             return bean.getObject();
         } catch (Exception e) {
             e.printStackTrace();
