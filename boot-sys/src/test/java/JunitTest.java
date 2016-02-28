@@ -15,6 +15,7 @@ import org.apache.shiro.util.Factory;
 import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 
 /**
  * Created by Ming on 2016/2/24.
@@ -84,5 +85,14 @@ public class JunitTest extends AbstractServiceTests{
         Assert.assertEquals(true, subject.isAuthenticated()); //断言用户已经登录
         //6、退出
         subject.logout();
+    }
+
+    //---------------get value  from yml config
+    @Value("${info.build.artifact}")
+    private Integer age;
+
+    @Test
+    public void test(){
+        System.out.println(age);
     }
 }
