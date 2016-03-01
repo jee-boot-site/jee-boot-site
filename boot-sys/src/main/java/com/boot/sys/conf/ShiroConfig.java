@@ -73,13 +73,14 @@ public class ShiroConfig {
         return securityManager;
     }
 
+    //使用shiro默认的Session dao
     @Bean(name = "sessionManager")
     public ValidatingSessionManager sessionManager() {
         logger.debug("create session manager.");
 
         DefaultWebSessionManager sessionManager = new DefaultWebSessionManager();
         sessionManager.setGlobalSessionTimeout(1800000);
-        //essionManager.setSessionDAO(shiroSessionDao());
+        //sessionManager.setSessionDAO(new EnterpriseCacheSessionDAO());
         sessionManager.setCacheManager(cacheManager());
         return sessionManager;
     }
@@ -97,11 +98,12 @@ public class ShiroConfig {
     public CacheManager cacheManager() {
         logger.debug("create cache mamager.");
         EhCacheManager cacheManager = new EhCacheManager();
-       // cacheManager.setCacheManager(CacheConfig.ehCacheManagerFactoryBean().getObject());
+        //cacheManager.setCacheManagerConfigFile("classpath:ehcache-shiro.xml");
+
         return cacheManager;
     }
 
-    @Bean(name="CasFilter")
+    @Bean(name="asFilter")
     public CasFilter casFilter(){
         CasFilter casFilter = new CasFilter();
         casFilter.setFailureUrl("/login");

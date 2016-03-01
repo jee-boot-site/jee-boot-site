@@ -11,29 +11,31 @@
 
 
     <artifactId>boot-sys</artifactId>
-    <properties>
-    <start-class>com.boot.Application</start-class>
+   <properties>
+        <start-class>com.boot.Application</start-class>
     </properties>
     <dependencies>
-        <dependency>
-            <groupId>com</groupId>
-            <artifactId>boot-cms</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-
         <dependency>
             <groupId>com</groupId>
             <artifactId>boot-common</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
-
         <dependency>
             <groupId>com</groupId>
-            <artifactId>boot-dao</artifactId>
+            <artifactId>boot-cms</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
-
-
     </dependencies>
 
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <mainClass>com.boot.Application</mainClass>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>

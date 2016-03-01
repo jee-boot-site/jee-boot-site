@@ -39,7 +39,8 @@ public class LocaleConfiguration  extends WebMvcConfigurerAdapter {
    @Bean
    public MessageSource messageSource() {
        ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
-       messageSource.setBasenames("classpath:/i18n/messages", "classpath:/i18n/application");
+       //messageSource.setBasenames("classpath:/i18n/messages", "classpath:/i18n/application");
+       messageSource.setBasenames("classpath:/i18n/messages");
        messageSource.setDefaultEncoding("UTF-8");
        return messageSource;
    }

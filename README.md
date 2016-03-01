@@ -19,6 +19,19 @@
 * [start admin2](https://github.com/BlackrockDigital/startbootstrap-sb-admin-2),github上比较火的一个bootstrap框架，国内jeeshop 后台也使用了这来做后台界面，使用bower 包管理技术对js插件进行管理。
 * thymeleaf模板，spring-boot官网推荐模板，最大的有点是可以直接打开看效果。
 
+# 主要模块介绍
+* boot-dao  主要是由mybatis  generator 生成的代码
+* boot-common  放置了些公共配置文件，并且 依赖于boot-dao
+
+
+# 快速运行
+* windows 下点击 run.bat
+* linux 下在跟目录下运行脚本  ./run.sh
+
+# 测试登陆
+```
+curl -X POST  --data-ascii "loginName=thinkgem&password=admin" http://localhost:9090/login |iconv -f UTF-8
+```
 #目的计划
 *  时间精力有限，学习交流第一，功能实现其次。
 *  在jeesite 的基础上，可能引入dubbo 进行服务治理
