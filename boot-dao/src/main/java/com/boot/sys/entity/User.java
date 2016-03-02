@@ -1,8 +1,13 @@
 package com.boot.sys.entity;
 
-import java.util.Date;
-import javax.persistence.*;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
+import javax.persistence.Column;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import java.util.Date;
+
+@JsonInclude(JsonInclude.Include.NON_NULL)
 @Table(name = "sys_user")
 public class User {
     /**

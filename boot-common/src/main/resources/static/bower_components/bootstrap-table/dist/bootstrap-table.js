@@ -1803,6 +1803,7 @@
                     this.options.totalRows : this.options.pageSize;
                 params.offset = this.options.pageSize === this.options.formatAllRows() ?
                     0 : this.options.pageSize * (this.options.pageNumber - 1);
+                params.pageNumber = this.options.pageNumber;
             }
         }
 

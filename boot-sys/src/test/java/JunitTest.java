@@ -28,7 +28,7 @@ public class JunitTest extends AbstractServiceTests{
     public void test(){
         Example example = new Example(User.class);
         example.selectProperties("loginName","name");
-        example.createCriteria().andCondition("id=", 10);
+       /* example.createCriteria().andCondition("id=", 10);*/
         logger.info("++++" +JSON.toJSONString(userMapper.selectByExample(example)));
     }
 

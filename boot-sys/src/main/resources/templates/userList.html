@@ -3,28 +3,38 @@
 
 <head>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
 
     <title>SB Admin 2 - Bootstrap Admin Theme</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="../../../../../boot-common/src/main/resources/static/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../../../../boot-common/src/main/resources/static/bower_components/bootstrap/dist/css/bootstrap.min.css"
+          th:href="@{/bower_components/bootstrap/dist/css/bootstrap.min.css}"
+          rel="stylesheet"/>
 
     <!-- MetisMenu CSS -->
-    <link href="../../../../../boot-common/src/main/resources/static/bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
+    <link href="../../../../../boot-common/src/main/resources/static/bower_components/metisMenu/dist/metisMenu.min.css"
+          th:href="@{/bower_components/metisMenu/dist/metisMenu.min.css}"
+          rel="stylesheet"/>
 
     <!-- DataTables CSS -->
-    <link href="../../../../../boot-common/src/main/resources/static/bower_components/bootstrap-table/dist/bootstrap-table.css" rel="stylesheet">
+    <link href="../../../../../boot-common/src/main/resources/static/bower_components/bootstrap-table/dist/bootstrap-table.css"
+          th:href="@{/bower_components/bootstrap-table/dist/bootstrap-table.css}"
+          rel="stylesheet"/>
 
     <!-- Custom CSS -->
-    <link href="../../../../../boot-common/src/main/resources/static/dist/css/sb-admin-2.css" rel="stylesheet">
+    <link href="../../../../../boot-common/src/main/resources/static/dist/css/sb-admin-2.css"
+          th:href="@{/dist/css/sb-admin-2.css}"
+          rel="stylesheet"/>
 
     <!-- Custom Fonts -->
-    <link href="../../../../../boot-common/src/main/resources/static/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="../../../../../boot-common/src/main/resources/static/bower_components/font-awesome/css/font-awesome.min.css"
+          th:href="@{/bower_components/font-awesome/css/font-awesome.min.css}"
+          rel="stylesheet" type="text/css"/>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -59,15 +69,11 @@
                     <!-- /.panel-heading -->
 
                     <div class="panel-body">
-                       <table id="table">
+                       <table id="table" >
                             <thead>
                                 <tr>
-                                    <th data-field="name">Name</th>
-                                    <th data-field="stargazers_count">Stars</th>
-                                    <th data-field="forks_count">Forks</th>
-                                    <th data-field="description">Description</th>
-
-
+                                    <th data-field="loginName">LoginName</th>
+                                    <th data-field="name"> Name</th>
                                 </tr>
                             </thead>
                         </table>
@@ -87,56 +93,89 @@
 <!-- /#wrapper -->
 
 <!-- jQuery -->
-<script src="../../../../../boot-common/src/main/resources/static/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="../../../../../boot-common/src/main/resources/static/bower_components/jquery/dist/jquery.min.js"
+        th:src="@{/bower_components/jquery/dist/jquery.min.js}"></script>
 
 <!-- Bootstrap Core JavaScript -->
-<script src="../../../../../boot-common/src/main/resources/static/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="../../../../../boot-common/src/main/resources/static/bower_components/bootstrap/dist/js/bootstrap.min.js"
+        th:src="@{/bower_components/bootstrap/dist/js/bootstrap.min.js}"></script>
 
 <!-- Metis Menu Plugin JavaScript -->
-<script src="../../../../../boot-common/src/main/resources/static/bower_components/metisMenu/dist/metisMenu.min.js"></script>
+<script src="../../../../../boot-common/src/main/resources/static/bower_components/metisMenu/dist/metisMenu.min.js"
+        th:src="@{/bower_components/metisMenu/dist/metisMenu.min.js}"></script>
 
 <!-- Custom Theme JavaScript -->
-<script src="../../../../../boot-common/src/main/resources/static/dist/js/sb-admin-2.js"></script>
+<script src="../../../../../boot-common/src/main/resources/static/dist/js/sb-admin-2.js"
+        th:src="@{/dist/js/sb-admin-2.js}"></script>
 
-<script src="../../../../../boot-common/src/main/resources/static/bower_components/bootstrap-table/dist/bootstrap-table.min.js"></script>
+
+<script src="../../../../../boot-common/src/main/resources/static/bower_components/bootstrap-table/dist/bootstrap-table.js"
+        th:src="@{/bower_components/bootstrap-table/dist/bootstrap-table.js}"></script>
 <script>
-     var data = [
-    {
-        "name": "bootstrap-table",
-        "stargazers_count": "526",
-        "forks_count": "122",
-        "description": "An extended Bootstrap table with radio, checkbox, sort, pagination, and other added features. (supports twitter bootstrap v2 and v3) "
-    },
-    {
-        "name": "multiple-select",
-        "stargazers_count": "288",
-        "forks_count": "150",
-        "description": "A jQuery plugin to select multiple elements with checkboxes :)"
-    },
-    {
-        "name": "bootstrap-show-password",
-        "stargazers_count": "32",
-        "forks_count": "11",
-        "description": "Show/hide password plugin for twitter bootstrap."
-    },
-    {
-        "name": "blog",
-        "stargazers_count": "13",
-        "forks_count": "4",
-        "description": "my blog"
-    },
-    {
-        "name": "scutech-redmine",
-        "stargazers_count": "6",
-        "forks_count": "3",
-        "description": "Redmine notification tools for chrome extension."
-    }
-];
+
 
 $(function () {
+
+    console.log("-----")
     $('#table').bootstrapTable({
-        data: data
+        method: 'get',
+        url: "http://127.0.0.1:9090/getUserListData",
+        cache: false,
+        height: 400,
+        dataType: "json",
+       // contentType: "application/x-www-form-urlencoded",
+        striped: true,  // 隔行加亮
+        pagination: true,
+        pageNumber:1,
+        pageSize: 10,
+        pageList: [10, 25],
+        search: false, //不显示 搜索框
+        showColumns: false, //不显示下拉框（选择显示的列）
+        sidePagination: "server",   //分页方式：client客户端分页，server服务端分页（*）
+        minimumCountColumns: 2,
+        clickToSelect: true,
+        queryParams: queryParams,
+        columns: [{
+            field: 'loginName',
+            align : 'center'
+        },{
+            field: 'name',
+            align : 'center'
+        }]
     });
+
+    function queryParams(params) {
+        return {
+          /*  pageSize: params.pageSize,
+            pageNumber: params.pageNumber
+           offset: params.offset, //页码
+           */
+            pageSize: params.limit, //页面大小
+            pageNumber: params.pageNumber
+        };
+    }
+
+    /*
+    bootstrap  table  如果使用server端进行 分页的话，在 点击 页码 的时候，bootstrap -table  会默认根据 页码向后台 发送 limit（每页面数量）   和  offset（偏移量）  这 两个参数，
+      当然 用户 可以 定义 queryParams(params) 函数，自定义 参数，
+      另外 ，params  中 没有 提供 pageNumber  ，可以 自己 根据 offset  和limit  计算，也可以 直接修改 bootstrap-table 的 源码，添加 一行即可
+
+     if (this.options.queryParamsType === 'limit') {
+         params = {
+             search: params.searchText,
+             sort: params.sortName,
+             order: params.sortOrder
+         };
+         if (this.options.pagination) {
+             params.limit = this.options.pageSize === this.options.formatAllRows() ?
+             this.options.totalRows : this.options.pageSize;
+             params.offset = this.options.pageSize === this.options.formatAllRows() ?
+             0 : this.options.pageSize * (this.options.pageNumber - 1);
+             params.pageNumber = this.options.pageNumber;     //添加 一个  pageNumber ,避免 每次 都自己计算
+         }
+     }
+
+     */
 });
 </script>
 </body>
