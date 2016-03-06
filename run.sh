@@ -1,3 +1,3 @@
-mvn clean install -DskipTests
+nohup mvn clean install -DskipTests
 cd boot-sys
-mvn spring-boot:run
+nohup mvn spring-boot:run &

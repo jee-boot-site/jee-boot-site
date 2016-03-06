@@ -1,6 +1,6 @@
 server:
     port: 9090
-    context-path: #/liuzh/
+    context-path: /boot
 
 logging:
     level:

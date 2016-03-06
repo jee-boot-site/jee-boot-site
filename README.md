@@ -22,16 +22,22 @@
 # 主要模块介绍
 * boot-dao  主要是由mybatis  generator 生成的代码
 * boot-common  放置了些公共配置文件，并且 依赖于boot-dao
+* SB2  框架的代码都放在了common  模块中的static  文件夹中，去掉了node_module 文件夹，因为这个文件夹太大了，而且没有必要。
 
 
 # 快速运行
+* 数据库配置，先导入sql 文件（jeesite.sql），用户名和密码在 boot-common\src\main\resources  中的application.yml  中配置，默认(name:root passwor:123456)
 * windows 下点击 run.bat
-* linux 下在跟目录下运行脚本  ./run.sh
+
+* linux 下
+    * 确保 安装了jdk8 ,centos  下 使用 yum install java-1.8.0-openjdk-devel
+    * linux 下在跟目录下运行脚本  ./run.sh  (先赋予权限 chmod 777 run.sh)
 
 # 测试登陆
 ```
-curl -X POST  --data-ascii "loginName=thinkgem&password=admin" http://localhost:9090/login |iconv -f UTF-8
+curl -X POST  --data-ascii "loginName=thinkgem&password=admin" http://localhost:9090/boot/login |iconv -f UTF-8
 ```
+
 #目的计划
 *  时间精力有限，学习交流第一，功能实现其次。
 *  在jeesite 的基础上，可能引入dubbo 进行服务治理
